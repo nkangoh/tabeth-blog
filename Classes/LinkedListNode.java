@@ -2,13 +2,12 @@
 public class LinkedListNode {
     int data; /* Data in this case is just a number, your data could also be a String, or
 		 a more sophisticated object. */
-    LinkedListNode next; /* A pointer to the next LinkedListNode, notice that this is
+    LinkedListNode next = null; /* A pointer to the next LinkedListNode, notice that this is
 			    a singly Linked List as there is no previous LinkedListNode
 			    pointer */
 
-    public LinkedListNode(int data){
-	this.data = data;
-	this.next = null;
+    public LinkedListNode(int value){
+    	this.data = value;
     }
 
     public void add(int data){
@@ -32,6 +31,19 @@ public class LinkedListNode {
 	}
 	toDelete = null; /* Effectively delete the node */
     }
+
+    public void print(){
+	LinkedListNode print = this;
+	while (print != null){
+	    System.out.print(print.data + " ");
+	    print = print.next;
+	}
+
+	System.out.print("null");
+	System.out.println();
+    }
+
+
 
     /* There are other interesting things that you might want in your class, such as search, 
        print, deleting a specific node, etc. For this problem, these two methods are enough
