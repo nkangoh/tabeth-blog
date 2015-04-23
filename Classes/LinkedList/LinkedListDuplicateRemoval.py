@@ -7,9 +7,10 @@ def main():
     test.add(2)
     test.printNodes()
 
-    removeDuplicates(test)
+    remove_duplicates(test)
+    remove_duplicates_alt(test)
 
-def removeDuplicates(node):
+def remove_duplicates(node):
     seen = {} 
     temp = node
     print_node = temp
@@ -25,4 +26,15 @@ def removeDuplicates(node):
     print_node.printNodes()
 
 
+def remove_duplicates_alt(node):
+    equal_to_this = node
+
+    while(equal_to_this.next is not None):
+        current_node = equal_to_this.next
+        while (current_node.next is not None):
+            if current_node.data == equal_to_this.data:
+                current_node.delete()
+            current_node = current_node.next
+        equal_to_this = equal_to_this.next
+    node.printNodes()
 main()

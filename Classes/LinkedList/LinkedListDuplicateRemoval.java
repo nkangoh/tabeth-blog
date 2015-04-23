@@ -14,6 +14,7 @@ public class LinkedListDuplicateRemoval {
 	   */
 
 	removeDuplicates(test);
+	removeDuplicatesAlt(test);
     }
 
     public static void removeDuplicates(LinkedListNode node){
@@ -33,8 +34,24 @@ public class LinkedListDuplicateRemoval {
 	    start = start.next;
 	}
 
-	// Print out 
 	print.print();
-	System.out.print("null");
+    }
+
+    public static void removeDuplicatesAlt (LinkedListNode node){
+	LinkedListNode equalToThis = node;
+
+	while (equalToThis.next != null){
+	    LinkedListNode currentNode = equalToThis.next;
+
+	    while (currentNode.next != null){
+		if (currentNode.data == equalToThis.data)
+		    currentNode.delete();
+
+		currentNode = currentNode.next;
+	    }
+
+	    equalToThis = equalToThis.next;
+	    node.print();
+	}
     }
 }
